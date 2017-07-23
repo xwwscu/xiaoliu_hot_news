@@ -1,16 +1,20 @@
-require('normalize.css/normalize.css');
-require('styles/App.css');
+//require('normalize.css/normalize.css');
 
 import React from 'react';
-
-let yeomanImage = require('../images/yeoman.png');
+import PCIndex from './pc_index';
+import MobileIndex from './mobile_index';
+import MediaQuery from 'react-responsive';
 
 class AppComponent extends React.Component {
   render() {
     return (
-      <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+      <div>
+        <MediaQuery query='(min-device-width: 1224px)'>
+          <PCIndex/>
+        </MediaQuery>
+        <MediaQuery query='(max-device-width: 1224px)'>
+          <MobileIndex/>
+        </MediaQuery>
       </div>
     );
   }
