@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import { Menu, Icon} from 'antd';
-import {Tabs, Modal, message, Form, Input, Button, CheckBox} from 'antd';
+import {Tabs, Modal, message, Form, Input, Button} from 'antd';
 const MenuItem = Menu.Item;
 const FormItem = Form.Item;
 const TabPane = Tabs.TabPane;
@@ -27,8 +27,8 @@ class PCHeader extends React.Component {
   }
 
   handleClick(e) {
-    if (e.key="register") {
-      this.setState({current: "register"});
+    if (e.key='register') {
+      this.setState({current: 'register'});
       this.setModalVisible(true);
     } else {
       this.setState({current: e.key});
@@ -37,8 +37,8 @@ class PCHeader extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({userName: "xww", userId: "id_123"});
-    message.success("注册成功");
+    this.setState({userName: 'xww', userId: 'id_123'});
+    message.success('注册成功');
     this.setModalVisible(false);
   }
 
@@ -91,13 +91,13 @@ class PCHeader extends React.Component {
                 <TabPane tab="注册" key="2">
                   <Form layout="vertical" onSubmit={this.handleSubmit.bind(this)}>
                     <FormItem label="用户名">
-                      <Input placeholder="请输入用户名" {...getFieldDecorator("r_userName")}/>
+                      <Input placeholder="请输入用户名" {...getFieldDecorator('r_userName')}/>
                     </FormItem>
                     <FormItem label="密码">
-                      <Input type="password" placeholder="请输入密码" {...getFieldDecorator("r_password")}/>
+                      <Input type="password" placeholder="请输入密码" {...getFieldDecorator('r_password')}/>
                     </FormItem>
                     <FormItem label="确认密码">
-                      <Input type="password" placeholder="请再次输入密码" {...getFieldDecorator("r_confirmpassword")}/>
+                      <Input type="password" placeholder="请再次输入密码" {...getFieldDecorator('r_confirmpassword')}/>
                     </FormItem>
                     <Button type="primary" htmlType="submit">注册</Button>
                   </Form>
