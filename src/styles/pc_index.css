@@ -13,6 +13,61 @@
   padding-right: 5px;
 }
 
+.container {
+  padding-top: 10px;
+}
+
+.leftContainer {
+  width: 400px;
+  float: left;
+}
+
+.containerImg {
+  width: 380px;
+  height: 380px;
+  float: left;
+}
+
+.carousel {
+  width: 400px;
+  float: left;
+}
+
+.antCard {
+  margin-top: 5px !important;
+}
+
+.ant-card-head-title {
+  text-align: left !important;
+}
+
+.ant-card-body {
+  text-align: left !important;
+}
+
+.usercenter {
+  float: right !important;
+}
+
+.topNewsList {
+  float: left;
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.tabs_news {
+  padding-left: 10px;
+  width: 460px;
+  float: left;
+}
+
+.tabs_product {
+  width: 300px;
+  padding-left: 10px;
+  float: left;
+}
+
 .pcfooter {
   text-align: center;
   font-size: 15px;
