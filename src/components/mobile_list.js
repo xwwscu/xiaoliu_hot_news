@@ -1,5 +1,4 @@
 import React from 'react';
-import {Router, Route, Link, browserHistory} from 'react-router';
 import {Row, Col} from 'antd';
 
 export default class MobileList extends React.Component {
@@ -26,7 +25,7 @@ export default class MobileList extends React.Component {
     news.map((newsItem, indx)=>(
       <li key={indx}>
         <section key={indx} className="m_article list-item special_section clearfix">
-          <Link to='{details/${newsItem.uniquekey}}'>
+          <a href='{details/${newsItem.uniquekey}}'>
             <div className="m_article_img">
               <img src={newsItem.thumbnail_pic_s} alt={newsItem.title}/>
             </div>
@@ -41,7 +40,7 @@ export default class MobileList extends React.Component {
                 </div>
               </div>
             </div>
-          </Link>
+          </a>
         </section>
       </li>
     ))

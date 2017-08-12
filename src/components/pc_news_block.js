@@ -1,5 +1,4 @@
 import React from 'react';
-import {Router, Route, Link, browserHistory} from 'react-router';
 import {Card} from 'antd';
 
 export default class PCNewsBlock extends React.Component {
@@ -41,9 +40,6 @@ export default class PCNewsBlock extends React.Component {
     ?
     news.map((newsItem, indx)=>(
       <li key={indx}>
-        // <Link to={'details/${newsItem.uniquekey}'} target="_blank">
-        //   {newsItem.title}
-        // </Link>
         <a href={'details/${newsItem.uniquekey}'} target="_blank">
           {newsItem.title}
         </a>
