@@ -33,6 +33,7 @@ export default class PCNewsContainer extends React.Component {
                 <PCNewsBlock type="top" width="100%" bordered="false"/>
               </TabPane>
             </Tabs>
+
           </Col>
           <Col span={2}></Col>
         </Row>

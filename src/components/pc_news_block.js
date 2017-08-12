@@ -11,24 +11,28 @@ export default class PCNewsBlock extends React.Component {
   }
 
   componentWillMount() {
-    var fetchOpt = {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        Accept: 'application/json',
-      }
+    //var reqUrl = "http://v.juhe.cn/toutiao/index?type=" + this.props.type + "&key=7d72de38d8786ed96bec04b0598a728b";
+    var newsType = this.props.type || 'top'
+    var newsCount = this.props.count || 15;
+    var reqUrl = 'http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=' + this.props.type + '&count=' + newsCount;
+    var requestOpt = {
+      url: reqUrl,
+      method: 'GET'
     };
-    var reqUrl = "http://v.juhe.cn/toutiao/index?type=" + this.props.type + "&key=7d72de38d8786ed96bec04b0598a728b";
-    console.log("type : " + this.props.type + " url --> " + reqUrl);
-    fetch(reqUrl, fetchOpt)
-    .then(response => response.json())
-    .then(json => this.setState({news: json}));
-    /*fetch(reqUrl, fetchOpt).then((resp) => {
-      console.log('response === ' +JSON.stringify(resp) + " json === " + JSON.stringify(resp.json()));
-      return resp.json();
-    }).then((jsonObj) => {
-      this.setState({news: jsonObj});
-    });*/
+    console.log('type : ' + this.props.type + ' url --> ' + reqUrl);
+    // fetch(requestOpt)
+    // .then(response => response.json())
+    // .then(json => this.setState({news: json}));
+    // fetch(requestOpt).then((resp) => {
+    //   console.log('response === ' + resp + " Stringify : " + JSON.stringify(resp));
+    //   return resp.json();
+    // }).then((jsonObj) => {
+    //   this.setState({news: jsonObj});
+    // });
+    var myFetchOptions = {
+			method: 'GET'
+		};
+		fetch('http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=' + newsType + '&count=' + newsCount, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
   }
 
   render() {
@@ -37,11 +41,16 @@ export default class PCNewsBlock extends React.Component {
     ?
     news.map((newsItem, indx)=>(
       <li key={indx}>
-        <Link to={newsItem.url} target="_blank">{newsItem.title}</Link>
+        // <Link to={'details/${newsItem.uniquekey}'} target="_blank">
+        //   {newsItem.title}
+        // </Link>
+        <a href={'details/${newsItem.uniquekey}'} target="_blank">
+          {newsItem.title}
+        </a>
       </li>
     ))
     :
-    "没有加载到任何数据";
+    '没有加载到任何数据';
 
     return(
       <div className="topNewsList">
