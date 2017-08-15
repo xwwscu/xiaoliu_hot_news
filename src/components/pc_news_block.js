@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card} from 'antd';
+import {Link} from 'react-router';
 
 export default class PCNewsBlock extends React.Component {
   constructor() {
@@ -13,7 +14,7 @@ export default class PCNewsBlock extends React.Component {
     //var reqUrl = "http://v.juhe.cn/toutiao/index?type=" + this.props.type + "&key=7d72de38d8786ed96bec04b0598a728b";
     var newsType = this.props.type || 'top'
     var newsCount = this.props.count || 15;
-    var reqUrl = 'http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=' + this.props.type + '&count=' + newsCount;
+    var reqUrl = 'http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=' + newsType + '&count=' + newsCount;
     var requestOpt = {
       url: reqUrl,
       method: 'GET'
@@ -28,10 +29,7 @@ export default class PCNewsBlock extends React.Component {
     // }).then((jsonObj) => {
     //   this.setState({news: jsonObj});
     // });
-    var myFetchOptions = {
-			method: 'GET'
-		};
-		fetch('http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=' + newsType + '&count=' + newsCount, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
+		fetch(reqUrl).then(response => response.json()).then(json => this.setState({news: json}));
   }
 
   render() {
@@ -40,9 +38,9 @@ export default class PCNewsBlock extends React.Component {
     ?
     news.map((newsItem, indx)=>(
       <li key={indx}>
-        <a href={'details/${newsItem.uniquekey}'} target="_blank">
+        <Link to={`details/${newsItem.uniquekey}`} target="_blank">
           {newsItem.title}
-        </a>
+        </Link>
       </li>
     ))
     :
