@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 import {Row, Col} from 'antd';
 
 export default class MobileList extends React.Component {
@@ -12,10 +13,8 @@ export default class MobileList extends React.Component {
   componentWillMount() {
     var newsType = this.props.type || 'top'
     var newsCount = this.props.count || 15;
-    var myFetchOptions = {
-			method: 'GET'
-		};
-		fetch('http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=' + newsType + '&count=' + newsCount, myFetchOptions).then(response => response.json()).then(json => this.setState({news: json}));
+    var requestUrl = 'http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=' + newsType + '&count=' + newsCount;
+		fetch(requestUrl).then(response => response.json()).then(json => this.setState({news: json}));
   }
 
   render() {
@@ -25,7 +24,7 @@ export default class MobileList extends React.Component {
     news.map((newsItem, indx)=>(
       <li key={indx}>
         <section key={indx} className="m_article list-item special_section clearfix">
-          <a href='{details/${newsItem.uniquekey}}'>
+          <Link to={`details/${newsItem.uniquekey}`}>
             <div className="m_article_img">
               <img src={newsItem.thumbnail_pic_s} alt={newsItem.title}/>
             </div>
@@ -40,7 +39,7 @@ export default class MobileList extends React.Component {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </section>
       </li>
     ))

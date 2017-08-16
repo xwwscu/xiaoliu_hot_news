@@ -5,6 +5,7 @@ import {Router, Route, hashHistory} from 'react-router';
 import PCIndex from './pc_index';
 import PCNewsDetail from './pc_news_detail';
 import MobileIndex from './mobile_index';
+import MobileNewsDetail from './mobile_news_detail';
 import MediaQuery from 'react-responsive';
 import 'antd/dist/antd.css';
 
@@ -19,7 +20,10 @@ class AppComponent extends React.Component {
           </Router>
         </MediaQuery>
         <MediaQuery query='(max-device-width: 1224px)'>
-          <MobileIndex/>
+          <Router history={hashHistory}>
+            <Route path='/' component={MobileIndex}></Route>
+            <Route path='/details/:uniquekey' component={MobileNewsDetail}></Route>
+          </Router>
         </MediaQuery>
       </div>
     );
