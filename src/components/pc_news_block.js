@@ -13,7 +13,7 @@ export default class PCNewsBlock extends React.Component {
   componentWillMount() {
     //var reqUrl = "http://v.juhe.cn/toutiao/index?type=" + this.props.type + "&key=7d72de38d8786ed96bec04b0598a728b";
     var newsType = this.props.type || 'top'
-    var newsCount = this.props.count || 15;
+    var newsCount = this.props.count || 22;
     var reqUrl = 'http://newsapi.gugujiankong.com/Handler.ashx?action=getnews&type=' + newsType + '&count=' + newsCount;
     var requestOpt = {
       url: reqUrl,

@@ -49,7 +49,7 @@
   float: right !important;
 }
 
-.topNewsList {
+.top_news_list {
   float: left;
   text-align: left;
   font-size: 14px;
@@ -73,7 +73,7 @@
   font-size: 15px;
 }
 
-.topNewsList a {
+.top_news_list a {
     line-height: 22px !important;
     color: #666 !important;
 }
