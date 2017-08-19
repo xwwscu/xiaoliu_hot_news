@@ -3,6 +3,7 @@ import {Row, Col, BackTop} from 'antd';
 import WrappedPCHeader from './pc_header';
 import PCFooter from './pc_footer';
 import PCNewsImageBlock from './pc_news_img_block';
+import WrappedCommonComment from './common_comment';
 
 export default class PCNewsDetail extends React.Component {
 
@@ -35,6 +36,7 @@ export default class PCNewsDetail extends React.Component {
           <Col span={2}></Col>
           <Col span={14} className="container">
             <div className="articleContainer" dangerouslySetInnerHTML={this.createMarkUp()}></div>
+            <WrappedCommonComment uniquekey={this.props.params.uniquekey}/>
           </Col>
           <Col span={6}>
             <PCNewsImageBlock count={16} type="yule" width="100%" cartTitle="其他新闻" imageWidth="115px"/>

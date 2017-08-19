@@ -173,6 +173,7 @@ class PCHeader extends React.Component {
                   </Form>
                 </TabPane>
                 <TabPane tab="注册" key="2">
+                  &nbsp;&nbsp;
                   <Form layout="vertical" onSubmit={this.handleSubmit.bind(this)}>
                     <FormItem label="用户名">
                       {getFieldDecorator('r_username', {
