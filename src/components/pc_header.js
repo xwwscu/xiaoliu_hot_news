@@ -107,7 +107,7 @@ class PCHeader extends React.Component {
       <MenuItem key="logout" className="register">
         <Button type="primary" htmlType="button">{this.state.userName}</Button>
         &nbsp;&nbsp;
-        <Link target="_blank">
+        <Link target="_blank" to={'/usercenter'}>
           <Button type="dashed" htmlType="button">个人中心</Button>
         </Link>
         &nbsp;&nbsp;
@@ -148,7 +148,7 @@ class PCHeader extends React.Component {
             <Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible} onCancel={()=>this.setModalVisible(false)} onOk={()=>this.setModalVisible(false)} okText="关闭">
               <Tabs type="card" onChange={this.callback.bind(this)}>
                 <TabPane tab="登录" key="1">
-                  <Form layout="horizontal" onSubmit={this.handleSubmit.bind(this)}>
+                  <Form layout="vertical" onSubmit={this.handleSubmit.bind(this)}>
                     <FormItem label="账户">
                       {getFieldDecorator('username', {
                         rules: [{
