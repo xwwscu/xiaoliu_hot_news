@@ -1,6 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'antd';
-import {Form, Card, Button, Input} from 'antd';
+import {Form, Card, Button, Input, notification} from 'antd';
 const FormItem = Form.Item;
 
 class CommonComment extends React.Component {
@@ -27,6 +27,14 @@ class CommonComment extends React.Component {
       console.log('submit result : ' + JSON.stringify(json));
       this.componentDidMount();
 		});
+  }
+
+  addUserCollection() {
+    var requestUrl = 'http://newsapi.gugujiankong.com/Handler.ashx?action=uc&userid=' + localStorage.userId + '&uniquekey=' + this.props.uniquekey;
+    fetch(requestUrl).then(resp => resp.json()).then(json => {
+      //global notify event
+      notification['success']({message: 'ReactNews提醒', description:'收藏成功'});
+    });
   }
 
   render() {
@@ -57,6 +65,8 @@ class CommonComment extends React.Component {
                 )}
               </FormItem>
               <Button type="primary" htmlType="submit">提交评论</Button>
+              &nbsp;&nbsp;
+              <Button type="primary" htmlType="button" onClick={this.addUserCollection.bind(this)}>收藏</Button>
             </Form>
           </Col>
         </Row>
